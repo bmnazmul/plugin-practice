@@ -1,0 +1,108 @@
+<?php
+
+function custom_add_menu_page(){
+	add_menu_page( 
+		__( 'Admin Menu', 'textdomain' ),
+		'Admin menu',
+		'manage_options',
+		'Admin menu',
+		'my_custom_menu_page',
+		'dashicons-admin-users',
+		3
+	); 
+    // sub menu page
+
+    add_submenu_page(
+        'Admin menu',
+        __( 'Sub menu', 'textdomain' ),
+        __( 'Sub menu', 'textdomain' ),
+        'manage_options',
+        'books-shortcode-ref',
+        'books_ref_page_callback'
+    );
+}
+add_action( 'admin_menu', 'custom_add_menu_page' );
+
+/**
+ * Display a custom menu page
+ */
+function my_custom_menu_page(){
+	esc_html_e( 'Admin menu page test', 'textdomain' );	
+}
+function books_ref_page_callback() {
+    // Escaping the text output
+    esc_html_e('sub menu page test', 'textdomain');
+    
+    // Closing PHP tag to output HTML directly
+    ?>
+    
+    <div class='header_menu'>
+
+ <ul>
+        <li><a href="">home</a></li>
+        <li><a href="">about</a></li>
+        <li><a href="">service</a>
+           <ul>
+            <li><a href="">dropdown</a></li>
+            <li><a href="">dropdown</a></li>
+            <li><a href="">dropdown</a></li>
+            <li><a href="">dropdown</a>
+                <ul>
+                    <li><a href="">sub_dropdown</a></li>
+                    <li><a href="">sub_dropdown</a></li>
+                    <li><a href="">sub_dropdown</a></li>
+                    <li><a href="">sub_dropdown</a></li>
+                </ul>
+            </li>
+            <li><a href="">dropdown</a></li>
+            <li><a href="">dropdown</a></li>
+            <li><a href="">dropdown</a></li>
+           </ul>
+    
+        </li>
+        <li><a href="">contact</a></li>
+        <li><a href="">faq</a></li>
+        <li><a href="">product</a></li>
+        <li><a href="">clients</a></li>
+        <li><a href="">buyers</a></li>
+    </ul>
+</div>
+
+
+    </div>
+    
+    <?php
+    // Reopen PHP if needed
+}
+
+
+
+// Enqueue file function 
+
+
+
+
+function menu_plugin_assets(){
+    $plugin_dir_url = plugin_dir_url(__FILE__);
+
+    wp_enqueue_style( 'custom-css',$plugin_dir_url.'assets/css/custom.css');
+
+}
+
+add_action('wp_enqueue_scripts','menu_plugin_assets');
+
+
+
+
+  <div class='admin_header_menu'>
+
+ <ul>
+        <li><a href="">home</a></li>
+        <li><a href="">about</a></li>
+        <li><a href="">contact</a></li>
+        <li><a href="">faq</a></li>
+        <li><a href="">product</a></li>
+        <li><a href="">clients</a></li>
+        <li><a href="">buyers</a></li>
+    </ul>
+</div>

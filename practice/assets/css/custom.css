@@ -1,0 +1,117 @@
+/* body{
+    background: rgb(146, 16, 158);
+} */
+
+/* admin menu */
+
+.admin_header_menu ul{
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.admin_header_menu ul li{
+    display: inline-block;
+    position: relative;
+}
+.admin_header_menu ul li a{
+    color: black;
+    padding: 20px 10px;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.admin_header_menu ul li a:hover{
+    background: #d30909 ;
+    color:white;
+}
+
+
+
+/* sub menu  */
+
+.header_menu ul{
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.header_menu ul li{
+    display: inline-block;
+    position: relative;
+}
+.header_menu ul li a{
+    color: black;
+    padding: 20px 10px;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.header_menu ul li a:hover{
+    background: #d30909 ;
+    color:white;
+}
+/* dropdown menu */
+
+.header_menu ul li ul{
+    background: #262626 none repeat scroll 0 0;
+    left: -9999px;
+    margin: 0;
+    position: absolute;
+    text-align: left;
+    top: 62px;
+    width: 200px;
+    z-index: 99999;
+
+}
+.header_menu ul li:hover ul{
+    left: 0;
+}
+.header_menu ul li ul li{
+    display: block;
+}
+.header_menu ul li ul li a{
+    color: #fff;
+    padding: 8px 10px;
+}
+
+.header_menu ul li ul li a:hover{
+    background-color: #ddd;
+    color: #262626;
+}
+.header_menu ul li:hover a{
+    background-color: #d30909;
+    color: #fff;
+}
+.header_menu ul li:hover ul li a{
+    background: none;
+    color: #fff;
+}
+
+/* sub dropdown */
+.header_menu ul li ul ul{
+    left: -99999px;
+    top: 0;
+    position: absolute;
+}
+.header_menu ul li:hover ul li ul{
+    left: -9999999px;
+}
+.header_menu ul li ul li:hover ul{
+    left: 200px;
+}
+.header_menu ul li ul li:hover a{
+    background: #e708e0;
+    color: aliceblue;
+}
+.header_menu ul ul li:hover ul li a{
+    background-color: black;
+    color: #fff;
+}
+.header_menu ul ul li ul li a:hover{
+    background: #08e76c;
+    color: #fff;
+}
+
+
+

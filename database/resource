@@ -1,0 +1,101 @@
+global $wpdb;
+
+$table_name = $wpdb -> prefix. "customer";
+
+// $wpdb -> insert($table_name,
+// array(
+//     'name' => 'nazmul hasan',
+//     'cell' => '01686983612',
+//     'salary' => 70000.00,
+// ),
+
+// array(
+//     '%s',
+//     '%s',
+//     '%f'
+// ));
+
+// $wpdb -> update(
+//     $table_name,
+//     array(
+//        'name' => 'hridoy',
+//        'cell' => '01779794422',
+//        'salary' => 70000
+//     ),
+//     array(
+//         'id' => '1'
+//     ),
+//     array(
+//         '%s',
+//         '%d'
+
+//     ),
+//     array(
+//         '%d'
+
+//     ),
+// );
+
+// $wpdb -> delete(
+//     $table_name,
+//     array(
+//         'id' => 6
+//     ),
+//     array(
+//         '%d'
+//     ),
+//     );
+
+// $query = "SELECT * FROM $table_name";
+
+// $getalldata = $wpdb -> get_row($query, ARRAY_A);
+
+// echo $getalldata['name']."</br>";
+
+// echo $getalldata['cell'] ."</br>";
+
+// echo $getalldata['salary'];
+
+
+// for table data drawn
+
+$datadrawn = $wpdb-> get_results(
+    "
+    SELECT *
+    FROM $table_name
+    "
+);
+?>
+<table style="width:100%">
+  <tr>
+    <th>Customer Username</th>
+    <th>Contact</th>
+    <th>salary</th>
+    <th>Action</th>
+  </tr>
+<?php
+
+foreach($datadrawn as $datadrawnn){
+
+    // echo $datadrawnn -> name . "</br>";
+    ?>
+  <tr>
+    <td><?php echo $datadrawnn -> name; ?></td>
+    <td><?php echo $datadrawnn -> cell; ?></td>
+    <td><?php echo $datadrawnn -> salary; ?></td>
+    <td><a href="delete.php?id= <?php echo $datadrawnn -> id; ?>">delete </a>
+
+    
+
+        <a href="Edit.php?id= <?php echo $datadrawnn -> id; ?>">Edit </a>
+
+</td>
+  </tr>
+
+
+
+    <?php
+}
+?>
+</table>
+<?php

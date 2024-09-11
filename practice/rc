@@ -1,0 +1,29 @@
+<?php
+
+
+
+if(!function_exists('bl_donation_info')){
+    function bl_donation_info($atts = array(), $content = null, $tag = ''){
+
+        $getallatts = array_change_key_case((array) $atts,CASE_LOWER );
+
+        $getallatts = shortcode_atts(
+            array(
+                'class' => 'njhasan',
+                'id' => 'nohasan',
+            ),$getallatts, $tag
+        );
+
+        $selfcontent='<div id='.esc_html($getallatts['id']).' class='.esc_html($getallatts['class']).'>';
+
+        $selfcontent.= apply_filters('the_content', $content);
+        $selfcontent.="</div>";
+
+        return $selfcontent;
+    }
+}
+
+if(!shortcode_exists('bldonate')){
+    add_shortcode('bldonate','bl_donation_info');
+}
+?>
